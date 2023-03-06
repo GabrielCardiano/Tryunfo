@@ -18,6 +18,7 @@ class Form extends React.Component {
       onSaveButtonClick,
     } = this.props;
 
+    console.log(hasTrunfo);
     return (
       <form>
         <label htmlFor="input-name">
