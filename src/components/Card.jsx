@@ -15,7 +15,7 @@ class Card extends React.Component {
       hasTrunfo,
     } = this.props;
 
-    console.log(hasTrunfo);
+    // console.log(hasTrunfo);
 
     return (
       <section id="card-section">

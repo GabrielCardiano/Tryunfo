@@ -17,6 +17,7 @@ class App extends React.Component {
       rarity: '',
       check: false,
       card: [],
+      hasTrunfo: false,
     };
   }
 
@@ -65,6 +66,8 @@ class App extends React.Component {
       img: '',
       rarity: '',
       check: false,
+      hasTrunfo: [addCard, ...settedState.card]
+        .some((superTrunfo) => superTrunfo.check === true),
     }));
   };
 
@@ -78,12 +81,12 @@ class App extends React.Component {
       img,
       rarity,
       check,
+      hasTrunfo,
     } = this.state;
 
     const test1 = name.length > 0
       && description.length > 0
-      && img.length > 0
-      && rarity.length > 0;
+      && img.length > 0;
 
     const test2 = attr01 >= '0' && attr01 <= '90'
       && attr02 >= '0' && attr02 <= '90'
@@ -109,7 +112,7 @@ class App extends React.Component {
             cardRare={ rarity }
             cardTrunfo={ check }
             onInputChange={ this.handleChange }
-            // hasTrunfo={ }
+            hasTrunfo={ hasTrunfo }
             isSaveButtonDisabled={ !isSubmitValid }
             onSaveButtonClick={ this.handleSaveBtn }
           />
