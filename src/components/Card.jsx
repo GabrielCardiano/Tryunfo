@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import '../css/Card.css';
 
 class Card extends React.Component {
   render() {
@@ -15,7 +16,7 @@ class Card extends React.Component {
       hasTrunfo,
     } = this.props;
 
-    // console.log(hasTrunfo);
+    console.log(hasTrunfo);
 
     return (
       <section id="card-section">
