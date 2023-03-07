@@ -1,9 +1,17 @@
 form {
-  align-items: start;
+  align-items: flex-start;
   border: 1px solid red;
   display: flex;
   flex-direction: column;
   gap: 8px;
   margin: 15px;
+  padding: 22px;
+}
 
+input {
+  margin: 2px 8px;
+}
+
+textarea {
+  resize: none;
 }

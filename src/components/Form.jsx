@@ -23,6 +23,7 @@ class Form extends React.Component {
 
     return (
       <form>
+        <h2>Adicione Nova Carta</h2>
         <label htmlFor="input-name">
           Nome
           <input
@@ -38,7 +39,7 @@ class Form extends React.Component {
         <label htmlFor="input-textarea">
           Descrição
           <textarea
-            id="input-textarea"
+            id="textarea"
             name="description"
             data-testid="description-input"
             value={ cardDescription }

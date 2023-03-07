@@ -98,6 +98,8 @@ class App extends React.Component {
 
     const isSubmitValid = test1 && test2 && test3;
 
+    const { card: cardList } = this.state;
+
     return (
       <div>
         <h1>Tryunfo</h1>
@@ -117,7 +119,7 @@ class App extends React.Component {
             onSaveButtonClick={ this.handleSaveBtn }
           />
           <Card
-            cardName={ name }
+            // cardName={ name }
             cardDescription={ description }
             cardAttr1={ attr01 }
             cardAttr2={ attr02 }
@@ -131,6 +133,24 @@ class App extends React.Component {
             // onSaveButtonClick={ this.handleSaveBtn }
           />
         </main>
+        <section id="cardList-section">
+          <h3>Todas as Cartas</h3>
+          {
+            cardList.map((card) => (
+              <Card
+                key={ card.name }
+                cardName={ card.name }
+                cardDescription={ card.description }
+                cardAttr1={ card.attr01 }
+                cardAttr2={ card.attr02 }
+                cardAttr3={ card.attr03 }
+                cardImage={ card.img }
+                cardRare={ card.rarity }
+                cardTrunfo={ card.hasTrunfo }
+              />
+            ))
+          }
+        </section>
       </div>
     );
   }
