@@ -122,7 +122,7 @@ class App extends React.Component {
             cardImage={ img }
             cardRare={ rarity }
             cardTrunfo={ check }
-            onInputChange={ this.handleChange }
+            // onInputChange={ this.handleChange }
             // hasTrunfo={ }
             // isSaveButtonDisabled={ !isSubmitValid }
             // onSaveButtonClick={ this.handleSaveBtn }
