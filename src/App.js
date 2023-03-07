@@ -27,6 +27,12 @@ class App extends React.Component {
     });
   };
 
+  // isSubmitBtnValid = (event) => {
+  // //   // event.preventDefault();
+  //   const { name, description, img, rarity } = this.state;
+
+  // };
+
   render() {
     const {
       name,
@@ -38,6 +44,21 @@ class App extends React.Component {
       rarity,
       check,
     } = this.state;
+
+    const test1 = name.length > 0
+      && description.length > 0
+      && img.length > 0
+      && rarity.length > 0;
+
+    const test2 = attr01 >= '0' && attr01 <= '90'
+      && attr02 >= '0' && attr02 <= '90'
+      && attr03 >= '0' && attr03 <= '90';
+
+    const test3 = parseInt(attr01, 10)
+      + parseInt(attr02, 10)
+      + parseInt(attr03, 10) <= '210';
+
+    const isSubmitValid = test1 && test2 && test3;
 
     return (
       <div>
@@ -53,8 +74,8 @@ class App extends React.Component {
           cardTrunfo={ check }
           onInputChange={ this.handleChange }
           // hasTrunfo={ }
-          // isSaveButtonDisabled={ }
-          // onSaveButtonClick={ }
+          isSaveButtonDisabled={ !isSubmitValid }
+        // onSaveButtonClick={ }
         />
         <Card
           cardName={ name }
