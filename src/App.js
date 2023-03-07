@@ -1,6 +1,7 @@
 import React from 'react';
 import Form from './components/Form';
 import Card from './components/Card';
+import './css/App.css';
 
 class App extends React.Component {
   constructor() {
@@ -13,8 +14,9 @@ class App extends React.Component {
       attr02: '',
       attr03: '',
       img: '',
-      rarity: 'normal',
+      rarity: '',
       check: false,
+      card: [],
     };
   }
 
@@ -27,11 +29,44 @@ class App extends React.Component {
     });
   };
 
-  // isSubmitBtnValid = (event) => {
-  // //   // event.preventDefault();
-  //   const { name, description, img, rarity } = this.state;
+  handleSaveBtn = (event) => {
+    event.preventDefault();
 
-  // };
+    const {
+      name,
+      description,
+      attr01,
+      attr02,
+      attr03,
+      img,
+      rarity,
+      check,
+    } = this.state;
+
+    const addCard = {
+      name,
+      description,
+      attr01,
+      attr02,
+      attr03,
+      img,
+      rarity,
+      check,
+    };
+    // console.log(addCard);
+
+    this.setState((settedState) => ({
+      card: [addCard, ...settedState.card],
+      name: '',
+      description: '',
+      attr01: '0',
+      attr02: '0',
+      attr03: '0',
+      img: '',
+      rarity: '',
+      check: false,
+    }));
+  };
 
   render() {
     const {
@@ -63,34 +98,36 @@ class App extends React.Component {
     return (
       <div>
         <h1>Tryunfo</h1>
-        <Form
-          cardName={ name }
-          cardDescription={ description }
-          cardAttr1={ attr01 }
-          cardAttr2={ attr02 }
-          cardAttr3={ attr03 }
-          cardImage={ img }
-          cardRare={ rarity }
-          cardTrunfo={ check }
-          onInputChange={ this.handleChange }
-          // hasTrunfo={ }
-          isSaveButtonDisabled={ !isSubmitValid }
-        // onSaveButtonClick={ }
-        />
-        <Card
-          cardName={ name }
-          cardDescription={ description }
-          cardAttr1={ attr01 }
-          cardAttr2={ attr02 }
-          cardAttr3={ attr03 }
-          cardImage={ img }
-          cardRare={ rarity }
-          cardTrunfo={ check }
-          onInputChange={ this.handleChange }
-        // hasTrunfo={ }
-        // isSaveButtonDisabled={ }
-        // onSaveButtonClick={ }
-        />
+        <main>
+          <Form
+            cardName={ name }
+            cardDescription={ description }
+            cardAttr1={ attr01 }
+            cardAttr2={ attr02 }
+            cardAttr3={ attr03 }
+            cardImage={ img }
+            cardRare={ rarity }
+            cardTrunfo={ check }
+            onInputChange={ this.handleChange }
+            // hasTrunfo={ }
+            isSaveButtonDisabled={ !isSubmitValid }
+            onSaveButtonClick={ this.handleSaveBtn }
+          />
+          <Card
+            cardName={ name }
+            cardDescription={ description }
+            cardAttr1={ attr01 }
+            cardAttr2={ attr02 }
+            cardAttr3={ attr03 }
+            cardImage={ img }
+            cardRare={ rarity }
+            cardTrunfo={ check }
+            onInputChange={ this.handleChange }
+            // hasTrunfo={ }
+            // isSaveButtonDisabled={ !isSubmitValid }
+            // onSaveButtonClick={ this.handleSaveBtn }
+          />
+        </main>
       </div>
     );
   }

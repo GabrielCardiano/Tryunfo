@@ -1,4 +1,4 @@
-/* form {
+form {
   border: 1px solid red;
   display: flex;
   flex-direction: column;
@@ -6,4 +6,4 @@
   margin: 15px;
   gap: 8px;
 
-} */
+}
