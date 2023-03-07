@@ -119,7 +119,7 @@ class App extends React.Component {
             onSaveButtonClick={ this.handleSaveBtn }
           />
           <Card
-            // cardName={ name }
+            cardName={ name }
             cardDescription={ description }
             cardAttr1={ attr01 }
             cardAttr2={ attr02 }
