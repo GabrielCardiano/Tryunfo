@@ -1,6 +1,7 @@
 import React from 'react';
 import Form from './components/Form';
 import Card from './components/Card';
+import Cardlist from './components/CardList';
 import './css/App.css';
 
 class App extends React.Component {
@@ -14,7 +15,7 @@ class App extends React.Component {
       attr02: '',
       attr03: '',
       img: '',
-      rarity: '',
+      rarity: true,
       check: false,
       card: [],
       hasTrunfo: false,
@@ -57,7 +58,7 @@ class App extends React.Component {
     // console.log(addCard);
 
     this.setState((settedState) => ({
-      card: [addCard, ...settedState.card],
+      card: [...settedState.card, addCard],
       name: '',
       description: '',
       attr01: '0',
@@ -66,10 +67,14 @@ class App extends React.Component {
       img: '',
       rarity: '',
       check: false,
-      hasTrunfo: [addCard, ...settedState.card]
+      hasTrunfo: [...settedState.card, addCard]
         .some((superTrunfo) => superTrunfo.check === true),
     }));
   };
+
+  // handleDeleteBtn = (event) => {
+  //   console.log(event.target);
+  // };
 
   render() {
     const {
@@ -98,7 +103,7 @@ class App extends React.Component {
 
     const isSubmitValid = test1 && test2 && test3;
 
-    const { card: cardList } = this.state;
+    const { card } = this.state;
 
     return (
       <div>
@@ -133,24 +138,7 @@ class App extends React.Component {
             // onSaveButtonClick={ this.handleSaveBtn }
           />
         </main>
-        <section id="cardList-section">
-          <h3>Todas as Cartas</h3>
-          {
-            cardList.map((card) => (
-              <Card
-                key={ card.name }
-                cardName={ card.name }
-                cardDescription={ card.description }
-                cardAttr1={ card.attr01 }
-                cardAttr2={ card.attr02 }
-                cardAttr3={ card.attr03 }
-                cardImage={ card.img }
-                cardRare={ card.rarity }
-                cardTrunfo={ card.hasTrunfo }
-              />
-            ))
-          }
-        </section>
+        <Cardlist cardArray={ card } />
       </div>
     );
   }

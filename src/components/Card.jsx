@@ -14,6 +14,7 @@ class Card extends React.Component {
       cardRare,
       cardTrunfo,
       hasTrunfo,
+      // onDeleteButtonClick,
     } = this.props;
 
     console.log(hasTrunfo);
@@ -45,9 +46,10 @@ Card.propTypes = {
   cardAttr2: PropTypes.string.isRequired,
   cardAttr3: PropTypes.string.isRequired,
   cardImage: PropTypes.string.isRequired,
-  cardRare: PropTypes.bool.isRequired,
+  cardRare: PropTypes.string.isRequired,
   cardTrunfo: PropTypes.bool.isRequired,
   hasTrunfo: PropTypes.func.isRequired,
+  // onDeleteButtonClick: PropTypes.func.isRequired,
 };
 
 export default Card;
