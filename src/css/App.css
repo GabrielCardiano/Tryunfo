@@ -2,15 +2,3 @@ main {
   display: flex;
   justify-content: space-around;
 }
-
-#cardList-section {
-  align-items: center;
-  display: flex;
-  flex-direction: column;
-}
-
-#cardList-section > div {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-}

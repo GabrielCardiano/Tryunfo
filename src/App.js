@@ -55,7 +55,6 @@ class App extends React.Component {
       rarity,
       check,
     };
-    // console.log(addCard);
 
     this.setState((settedState) => ({
       card: [...settedState.card, addCard],
@@ -68,13 +67,21 @@ class App extends React.Component {
       rarity: '',
       check: false,
       hasTrunfo: [...settedState.card, addCard]
-        .some((superTrunfo) => superTrunfo.check === true),
+        .some((card) => card.check === true),
     }));
   };
 
-  // handleDeleteBtn = (event) => {
-  //   console.log(event.target);
-  // };
+  handleDeleteBtn = (name) => {
+    const { card: cardArray } = this.state;
+
+    const filteredArray = cardArray.filter((card) => card.name !== name);
+
+    const verifyTrunfo = filteredArray.some((card) => card.check === true);
+    this.setState(({
+      card: filteredArray,
+      hasTrunfo: verifyTrunfo,
+    }));
+  };
 
   render() {
     const {
@@ -132,13 +139,14 @@ class App extends React.Component {
             cardImage={ img }
             cardRare={ rarity }
             cardTrunfo={ check }
-            // onInputChange={ this.handleChange }
-            // hasTrunfo={ }
+            hasTrunfo={ hasTrunfo }
             // isSaveButtonDisabled={ !isSubmitValid }
-            // onSaveButtonClick={ this.handleSaveBtn }
           />
         </main>
-        <Cardlist cardArray={ card } />
+        <Cardlist
+          cardArray={ card }
+          onDeleteClick={ this.handleDeleteBtn }
+        />
       </div>
     );
   }

@@ -17,10 +17,10 @@ class Card extends React.Component {
       // onDeleteButtonClick,
     } = this.props;
 
-    console.log(hasTrunfo);
+    // console.log(hasTrunfo);
 
     return (
-      <section id="card-section">
+      <section id="Card-preview">
         <h2 data-testid="name-card">{cardName}</h2>
         <img
           src={ cardImage }
