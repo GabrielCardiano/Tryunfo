@@ -17,7 +17,7 @@ class Card extends React.Component {
       // onDeleteButtonClick,
     } = this.props;
 
-    // console.log(hasTrunfo);
+    console.log(hasTrunfo);
 
     return (
       <section id="Card-preview">
